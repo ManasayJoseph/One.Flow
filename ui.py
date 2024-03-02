@@ -2,6 +2,7 @@ import customtkinter
 from tkinter import *
 from customtkinter import *
 from PIL import Image
+from client import sync_clipboard
 
 
 class ToplevelWindow(CTkToplevel):
@@ -18,20 +19,20 @@ class ToplevelWindow(CTkToplevel):
 
         # Create buttons with images and pack them in their respective frames
         image = CTkImage(dark_image=Image.open("./images/wand.png"), size=(30, 30))
-        button = CTkButton(top_frame, image=image, width=90, height=90, text="")
-        button.pack(side="left", padx=5, pady=5)
+        wand = CTkButton(top_frame, image=image, width=90, height=90, text="")
+        wand.pack(side="left", padx=5, pady=5)
 
         image = CTkImage(dark_image=Image.open("./images/notes.png"), size=(30, 30))
-        button = CTkButton(top_frame, image=image, width=90, height=90, text="")
-        button.pack(side="left", padx=5, pady=5)
+        notes = CTkButton(top_frame, image=image, width=90, height=90, text="")
+        notes.pack(side="left", padx=5, pady=5)
 
         image = CTkImage(dark_image=Image.open("./images/screenshare.png"), size=(30, 30))
-        button = CTkButton(bottom_frame, image=image, width=90, height=90, text="")
-        button.pack(side="left", padx=5, pady=5)
+        share = CTkButton(bottom_frame, image=image, width=90, height=90, text="")
+        share.pack(side="left", padx=5, pady=5)
 
-        image = CTkImage(dark_image=Image.open("./images/scripts.png"), size=(30, 30))
-        button = CTkButton(bottom_frame, image=image, width=90, height=90, text="")
-        button.pack(side="left", padx=5, pady=5)
+        image = CTkImage(dark_image=Image.open("./images/clip.png"), size=(30, 30))
+        clip = CTkButton(bottom_frame, image=image, width=90, height=90, text="", command=sync_clipboard)
+        clip.pack(side="left", padx=5, pady=5)
 
 
 
